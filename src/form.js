@@ -1,11 +1,8 @@
 import React from "react";
-import { useState } from "react";
 
-import List from './list';
+const Form = ({setUserInput, userInput,setTodos,todos}) => {
 
-const Form = ({setUserInput, userInput}) => {
-
-    const [todos, setTodos] = useState([]);
+    
 
     const handleUserInput = (e) => {
         setUserInput(e.target.value);
@@ -13,16 +10,18 @@ const Form = ({setUserInput, userInput}) => {
     
     const handleSubmit = (e) => {
         
-        /*const year = Date.getFullYear();
+        /*
+        const year = Date.getFullYear();
         const month = Date.getMonth();
         const day = Date.getDate();
         const hour = Date.getHours();
         const minute = Date.getMinutes();
 
-        let date = `${hour}:${minute}, ${day}-${month}-${year}`;*/
+        let date = `${hour}:${minute}, ${day}-${month}-${year}`;
+        */
         
         if(userInput!=="") {
-            setTodos([...todos, {text: userInput}]);
+            setTodos([...todos, {index: Math.floor(Math.random()*1000), text: userInput, isDone: false}]);
             setUserInput("");
             e.preventDefault();
         }else {
@@ -47,7 +46,6 @@ const Form = ({setUserInput, userInput}) => {
                     Add
                 </button>
             </form>
-            <List todos={todos}/>
         </div>
     )
 }
