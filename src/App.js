@@ -2,14 +2,16 @@ import './App.css';
 //Importing Components
 import Header from './header';
 import Form from './form';
-import List from './list';
+import { useState } from "react";
 
 function App() {
+
+  const [userInput, setUserInput] = useState("");
+
   return (
     <div className="App">
-      <Header/>
-      <Form />
-      <List />
+      <Header />
+      <Form setUserInput={setUserInput} userInput={userInput}/>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
-import Todos from "./todos";
-const List = () => {
+import Todo from "./todo";
+const List = ({todos}) => {
     return (
         <ul>
-            <Todos />
+            <Todo todos={todos}></Todo>
         </ul>
     )
 }
